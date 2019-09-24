@@ -1,0 +1,46 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.1.8.RELEASE'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group 'lv.valts'
+version '1.0'
+
+sourceCompatibility = 11
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	def immutablesVersion = '2.8.0'
+	annotationProcessor "org.immutables:value:$immutablesVersion"
+	implementation "org.immutables:value-annotations:$immutablesVersion"
+	implementation "org.immutables:gson:$immutablesVersion"
+
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
+	implementation 'de.flapdoodle.embed:de.flapdoodle.embed.mongo'
+
+	def cxfVersion = '3.3.3'
+	implementation "org.apache.cxf:cxf-rt-rs-client:$cxfVersion"
+	implementation "org.apache.cxf:cxf-rt-rs-sse:$cxfVersion"
+
+	testImplementation 'org.junit.jupiter:junit-jupiter:5.5.2'
+	testImplementation 'org.assertj:assertj-core:3.13.2'
+	testImplementation 'org.mockito:mockito-core:3.0.0'
+	testImplementation 'org.mockito:mockito-junit-jupiter:3.0.0'
+}
+
+test {
+	useJUnitPlatform()
+	testLogging {
+		events 'passed', 'skipped', 'failed'
+	}
+}
+
+bootJar {
+	mainClassName = 'lv.valts.redditstats.MainApplication'
+}
