@@ -6,12 +6,14 @@ Prerequisites:
 * Internet connection and some disk space
 
 ### Run the server
-1. Download the pre-built JAR file from [GitHub](http://github.com)
+1. Download the pre-built JAR file from [GitHub](https://github.com/valtsmazurs/redditstats/blob/master/distributions/redditstats-1.0.jar)
 1. Run the JAR file with: ```java -jar redditstats-1.0.jar```
 
 OR
+clone the Git repository and run by Gradle
 
-1. clone the Git repository
+1. ```git clone https://github.com/valtsmazurs/redditstats.git```
+1. ```cd redditstats```
 1. ```./gradlew bootRun```
 
 The embedded HTTP server will be binded to localhost port 8080.
