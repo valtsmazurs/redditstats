@@ -52,7 +52,7 @@ The architecture demonstrates dependency flow where the innermost component has 
 not dependent on other components of this application.
 
 ### Used libraries and tools
-* MongoDB - widely used, stable, well suited for this case where there is no need for transactions that would be provided
+* MongoDB - widely used, stable, well suited for this case where there is no need for relations that would be provided
 by RDBMS
 * Embedded MongoDB - saves time to set up local MongoDB service 
 * Spring Boot - web service creation, dependency injection, comfortable APIs for MongoDB   
